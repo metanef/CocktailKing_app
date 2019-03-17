@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     image: {
         marginTop: 5,
         marginBottom: 5,
-        flex: 2
+        flex: 1,
+        resizeMode: 'contain'
     },
     title_text: {
         fontSize: 35,
