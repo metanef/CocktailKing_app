@@ -4,7 +4,9 @@ import { createStackNavigator, createAppContainer, createBottomTabNavigator } fr
 import Search from '../Components/Search'
 import CocktailDetail from '../Components/CocktailDetail'
 import Favorites from '../Components/Favorites'
-import Test from '../Components/Test'
+import IngredientDetail from '../Components/IngredientDetail'
+import News from '../Components/News'
+import Ingredient from '../Components/Ingredient'
 
 const SearchStackNavigator = createStackNavigator({
     Search: {
@@ -30,9 +32,40 @@ const FavoritesStackNavigator = createStackNavigator({
   }
 })
 
+const NewsStackNavigator = createStackNavigator({
+  News: {
+    screen: News,
+    navigationOptions: {
+      title: 'Discovery',
+    },
+  },
+  CocktailDetail: {
+    screen: CocktailDetail,
+  }
+})
+
+const IngredientStackNavigator = createStackNavigator({
+  Ingredient: {
+    screen: Ingredient,
+    navigationOptions: {
+      title: 'IngredientList',
+    },
+  },
+  IngredientDetail: {
+    screen: IngredientDetail,
+  }
+})
+
 const CocktailTabNavigator = createBottomTabNavigator({
-        Test: {
-            screen: Test
+        News: {
+          screen: NewsStackNavigator,
+          navigationOptions: {
+            tabBarIcon: () => {
+              return <Image
+                source={require('../assets/ic_fiber_new.png')}
+                style={styles.icon}/>
+            }
+          }
         },
         Search: {
             screen: SearchStackNavigator,
@@ -51,6 +84,17 @@ const CocktailTabNavigator = createBottomTabNavigator({
                 tabBarIcon: () => {
                     return <Image
                         source={require('../assets/ic_favorite.png')}
+                        style={styles.icon}
+                    />
+                }
+            }
+        },
+        Ingredient: {
+            screen: IngredientStackNavigator,
+            navigationOptions: {
+                tabBarIcon: () => {
+                    return <Image
+                        source={require('../assets/ic_cocktail.png')}
                         style={styles.icon}
                     />
                 }

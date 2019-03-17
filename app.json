@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "CocktailKing",
+    "android": {
+       "package": "com.eloi.cocktailKing"
+    },
     "slug": "CocktailKing",
     "privacy": "public",
     "sdkVersion": "32.0.0",
