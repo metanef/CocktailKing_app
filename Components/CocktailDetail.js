@@ -99,24 +99,40 @@ class CocktailDetail extends React.Component {
             // }
             if (cocktail.strIngredient1 !== "") {ingredient.push(
                 <View key='1' style={styles.ingredient_container}>
+                    <Image
+                        style={styles.image_ingredient}
+                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient1+'-Small.png'}}
+                    />
                     <Text style={styles.ingredient_text}>{cocktail.strIngredient1}</Text>
                     <Text style={styles.measure_text}>{cocktail.strMeasure1}</Text>
                 </View>
             )}
             if (cocktail.strIngredient2 !== "") {ingredient.push(
                 <View key='2' style={styles.ingredient_container}>
+                    <Image
+                        style={styles.image_ingredient}
+                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient2+'-Small.png'}}
+                    />
                     <Text style={styles.ingredient_text}>{cocktail.strIngredient2}</Text>
                     <Text style={styles.measure_text}>{cocktail.strMeasure2}</Text>
                 </View>
             )}
             if (cocktail.strIngredient3 !== "") {ingredient.push(
                 <View key='3' style={styles.ingredient_container}>
+                    <Image
+                        style={styles.image_ingredient}
+                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient3+'-Small.png'}}
+                    />
                     <Text style={styles.ingredient_text}>{cocktail.strIngredient3}</Text>
                     <Text style={styles.measure_text}>{cocktail.strMeasure3}</Text>
                 </View>
             )}
             if (cocktail.strIngredient4 !== "") {ingredient.push(
                 <View key='4' style={styles.ingredient_container}>
+                    <Image
+                        style={styles.image_ingredient}
+                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient4+'-Small.png'}}
+                    />
                     <Text style={styles.ingredient_text}>{cocktail.strIngredient4}</Text>
                     <Text style={styles.measure_text}>{cocktail.strMeasure4}</Text>
                 </View>
@@ -245,20 +261,25 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         paddingBottom: 5,
         paddingLeft: 5,
-        flex: 1
+        flex: 2
     },
     measure_text: {
         textAlign: 'right',
         paddingBottom: 5,
         paddingTop: 5,
         paddingRight: 5,
-        flex: 1
+        flex: 2
     },
     image: {
         height: 159,
         marginTop: 5,
         marginBottom: 5,
         flex: 2
+    },
+    image_ingredient: {
+        height: 60,
+        resizeMode: 'contain',
+        flex:1
     },
     title_text: {
         fontSize: 35,

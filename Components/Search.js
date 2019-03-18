@@ -4,6 +4,7 @@ import { getCocktailFromApiWithSearchedText } from '../API/TCDBApi'
 import Icon from 'react-native-vector-icons/Feather'
 import CocktailItem from './CocktailItem'
 import CocktailList from './CocktailList'
+import News from './News'
 
 class Search extends React.Component {
 
@@ -27,9 +28,6 @@ class Search extends React.Component {
         this.searchedText = text
     }
 
-    // _displayDetailForCocktail = (idCocktail) => {
-    //     this.props.navigation.navigate("CocktailDetail", { idCocktail: idCocktail })
-    // }
     _displayLoading() {
         if (this.state.isLoading) {
             return (
@@ -41,7 +39,14 @@ class Search extends React.Component {
     }
 
   render() {
-    if (this.state.cocktails == null) {
+    if (this.searchedText == "") {
+        result = <View style={styles.result_container}>
+            <Text style={styles.default_text}>Random cocktail</Text>
+            <News
+                navigation={this.props.navigation}
+            />
+        </View>
+    } else if (this.state.cocktails == null) {
         result = <Text style={styles.noresult}>No results</Text>
     } else {
         result = <CocktailList
@@ -50,6 +55,7 @@ class Search extends React.Component {
             loadCocktails={this._loadCocktails}
         />
     }
+
     return (
         <View style={styles.main_container}>
             <View style={styles.search_container}>
@@ -93,6 +99,15 @@ const styles = StyleSheet.create({
         height: 50,
         flex: 9,
         paddingLeft: 5
+    },
+    default_text: {
+        marginLeft: 5,
+        marginRight: 5,
+        paddingLeft: 5,
+        paddingBottom: 10,
+        fontSize: 20,
+        textAlign: 'center',
+        color: '#555'
     },
     button: {
         flex: 1,

@@ -7,6 +7,10 @@ import Favorites from '../Components/Favorites'
 import IngredientDetail from '../Components/IngredientDetail'
 import News from '../Components/News'
 import Ingredient from '../Components/Ingredient'
+import Alcool from '../Components/Alcool'
+import SortedCocktail from '../Components/SortedCocktail'
+import SortedCategory from '../Components/SortedCategory'
+import Category from '../Components/Category'
 
 const SearchStackNavigator = createStackNavigator({
     Search: {
@@ -32,15 +36,32 @@ const FavoritesStackNavigator = createStackNavigator({
   }
 })
 
-const NewsStackNavigator = createStackNavigator({
-  News: {
-    screen: News,
+const AlcoolStackNavigator = createStackNavigator({
+  SortedCocktail: {
+    screen: SortedCocktail,
     navigationOptions: {
-      title: 'Discovery',
+      title: 'Spirits',
     },
   },
+  Alcool: {
+    screen: Alcool,
+  },
   CocktailDetail: {
-    screen: CocktailDetail,
+    screen: CocktailDetail
+  }
+})
+const SortedCategoryStackNavigator = createStackNavigator({
+  SortedCategory: {
+    screen: SortedCategory,
+    navigationOptions: {
+      title: 'Category',
+    },
+  },
+  Category: {
+    screen: Category,
+  },
+  CocktailDetail: {
+    screen: CocktailDetail
   }
 })
 
@@ -48,7 +69,7 @@ const IngredientStackNavigator = createStackNavigator({
   Ingredient: {
     screen: Ingredient,
     navigationOptions: {
-      title: 'IngredientList',
+      title: 'Ingredients',
     },
   },
   IngredientDetail: {
@@ -57,12 +78,22 @@ const IngredientStackNavigator = createStackNavigator({
 })
 
 const CocktailTabNavigator = createBottomTabNavigator({
-        News: {
-          screen: NewsStackNavigator,
+        SortedCategory: {
+          screen: SortedCategoryStackNavigator,
           navigationOptions: {
             tabBarIcon: () => {
               return <Image
-                source={require('../assets/ic_fiber_new.png')}
+                source={require('../assets/ic_cocktail.png')}
+                style={styles.icon}/>
+            }
+          }
+        },
+        SortedCocktail: {
+          screen: AlcoolStackNavigator,
+          navigationOptions: {
+            tabBarIcon: () => {
+              return <Image
+                source={require('../assets/ic_spirits.png')}
                 style={styles.icon}/>
             }
           }
@@ -72,7 +103,7 @@ const CocktailTabNavigator = createBottomTabNavigator({
             navigationOptions: {
                 tabBarIcon: () => { // Icon render
                     return <Image
-                        source={require('../assets/ic_search.png')}
+                        source={require('../assets/ic_home.png')}
                         style={styles.icon} // Icon style
                     />
                 }
@@ -94,7 +125,7 @@ const CocktailTabNavigator = createBottomTabNavigator({
             navigationOptions: {
                 tabBarIcon: () => {
                     return <Image
-                        source={require('../assets/ic_cocktail.png')}
+                        source={require('../assets/ic_book.png')}
                         style={styles.icon}
                     />
                 }
@@ -102,6 +133,7 @@ const CocktailTabNavigator = createBottomTabNavigator({
         }
     },
     {
+        initialRouteName: 'Search',
         tabBarOptions: {
             activeBackgroundColor: '#DDDDDD', // ative tab background color
             inactiveBackgroundColor: '#FFFFFF',

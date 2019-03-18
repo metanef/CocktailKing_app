@@ -1,23 +1,20 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
-import FadeIn from '../Animations/FadeIn'
 
 class IngredientItem extends React.Component {
 
     render() {
         const { ingredient, displayDetailForIngredient } = this.props
         return (
-            <FadeIn>
-                <TouchableOpacity style={styles.main_container} onPress={() => displayDetailForIngredient(ingredient.strIngredient1)}>
-                    <Image
-                        style={styles.image}
-                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient1 + '-Medium.png'}}
-                    />
-                    <View style={styles.content_container}>
-                        <Text style={styles.title_text}>{ingredient.strIngredient1}</Text>
-                    </View>
-                </TouchableOpacity>
-            </FadeIn>
+            <TouchableOpacity style={styles.main_container} onPress={() => displayDetailForIngredient(ingredient.strIngredient1)}>
+                <Image
+                    style={styles.image}
+                    source={{uri: 'https://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient1 + '-Medium.png'}}
+                />
+                <View style={styles.content_container}>
+                    <Text style={styles.title_text}>{ingredient.strIngredient1}</Text>
+                </View>
+            </TouchableOpacity>
         )
     }
 }

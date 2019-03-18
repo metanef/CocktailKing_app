@@ -20,8 +20,16 @@ class Ingredient extends React.Component {
   _loadIngredients() {
     this.setState({ isLoading: true })
     getIngredientListFromApi().then(data => {
+        ingredient_sort = data.drinks.sort(function(a, b) {
+            var nameA=a.strIngredient1.toLowerCase(), nameB=b.strIngredient1.toLowerCase()
+            if (nameA < nameB) //sort string ascending
+                return -1
+            if (nameA > nameB)
+                return 1
+            return 0 //default return value (no sorting)
+        })
         this.setState({
-          ingredients: [ ...data.drinks ],
+          ingredients: [ ...ingredient_sort ],
           isLoading: false
         })
     })

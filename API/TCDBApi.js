@@ -19,6 +19,16 @@ export function getRandomCocktailFromApi () {
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
+export function getCocktailByIngredientFromApi (ingredient) {
+  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?i=' + ingredient)
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+}
+export function getCocktailByCategoryFromApi (category) {
+  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?c=' + category)
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+}
 
 // Ingredient methods
 export function getIngredientListFromApi () {

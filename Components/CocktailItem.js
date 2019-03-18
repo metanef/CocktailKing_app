@@ -47,12 +47,22 @@ class CocktailItem extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         height: 190,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderRadius: 0,
+        backgroundColor: 'white',
+        marginTop: 5,
+        marginBottom: 5,
+        shadowColor: 'black',
+        shadowOffset: {width: 30, height: 10},
+        shadowOpacity: 0.5,
+        shadowRadius: 20,
+        elevation: 1
     },
     image: {
         width: 120,
         height: 180,
         margin: 5,
+        borderRadius: 10,
         backgroundColor: 'gray'
     },
     content_container: {
