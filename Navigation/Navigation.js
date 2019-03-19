@@ -16,7 +16,7 @@ const SearchStackNavigator = createStackNavigator({
     Search: {
         screen: Search,
         navigationOptions: {
-            title: 'Search'// /!\attention
+            title: 'Home'// /!\attention
         }
     },
     CocktailDetail: {
@@ -54,7 +54,10 @@ const AlcoolStackNavigator = createStackNavigator({
   },
   CocktailDetail: {
     screen: CocktailDetail
-  }
+    },
+    IngredientDetail: {
+      screen: IngredientDetail,
+    }
 })
 const SortedCategoryStackNavigator = createStackNavigator({
   SortedCategory: {
@@ -68,6 +71,9 @@ const SortedCategoryStackNavigator = createStackNavigator({
   },
   CocktailDetail: {
     screen: CocktailDetail
+  },
+  IngredientDetail: {
+    screen: IngredientDetail,
   }
 })
 

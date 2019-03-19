@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
         height: 180,
         margin: 5,
         borderRadius: 10,
-        backgroundColor: 'gray'
+        backgroundColor: '#ccc'
     },
     content_container: {
         flex: 1,
-        margin: 5
+        margin: 5,
     },
     header_container: {
         flex: 3,
@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
     alcoholic_text: {
         fontWeight: 'bold',
         fontSize: 12,
+        paddingTop: 5,
+        paddingRight: 5,
         color: '#666666'
     },
     description_container: {
@@ -93,11 +95,13 @@ const styles = StyleSheet.create({
         color: '#666666'
     },
     category_container: {
-        flex: 1
+        flex: 1,
+        paddingBottom: 5
     },
     category_text: {
         textAlign: 'right',
-        fontSize: 14
+        paddingRight: 5,
+        fontSize: 16
     },
     favorite_image: {
         width: 25,

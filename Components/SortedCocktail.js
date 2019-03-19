@@ -127,6 +127,9 @@ class SortedCocktail extends React.Component {
           flexDirection: 'row'
       },
       default_text: {
+          textShadowColor: 'rgba(0, 0, 0, 0.5)',
+          textShadowOffset: {width: 0, height: 1},
+          textShadowRadius: 10,
           fontSize: 20,
           textAlign: 'center',
           color: 'white'
