@@ -21,6 +21,9 @@ const SearchStackNavigator = createStackNavigator({
     },
     CocktailDetail: {
         screen: CocktailDetail
+    },
+    IngredientDetail: {
+      screen: IngredientDetail,
     }
 })
 
@@ -33,7 +36,10 @@ const FavoritesStackNavigator = createStackNavigator({
   },
   CocktailDetail: {
     screen: CocktailDetail
-  }
+},
+IngredientDetail: {
+  screen: IngredientDetail,
+}
 })
 
 const AlcoolStackNavigator = createStackNavigator({
@@ -114,7 +120,7 @@ const CocktailTabNavigator = createBottomTabNavigator({
             navigationOptions: {
                 tabBarIcon: () => {
                     return <Image
-                        source={require('../assets/ic_favorite.png')}
+                        source={require('../assets/ic_favorite_dark.png')}
                         style={styles.icon}
                     />
                 }

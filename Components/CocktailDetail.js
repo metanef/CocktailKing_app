@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, Image, ActivityIndicator, ScrollView, FlatList, TouchableOpacity, Share } from 'react-native'
 import { getCocktailDetailFromApi } from '../API/TCDBApi'
 import { connect } from 'react-redux'
+import Ingredient from './IngredientMeasure'
 
 class CocktailDetail extends React.Component {
     static navigationOptions = ({ navigation }) => {
@@ -83,9 +84,10 @@ class CocktailDetail extends React.Component {
         )
     }
 
+    // share cocktail name and picture
     _shareCocktail() {
         const { cocktail } = this.state
-        Share.share({ title: 'CocktailKing app', message: 'We have to try this cocktail : ' + cocktail.strDrink })
+        Share.share({ title: 'CocktailKing app', message: 'We have to try this cocktail : ' + cocktail.strDrink + ' ' + cocktail.strDrinkThumb })
     }
 
     _displaycocktail() {
@@ -93,82 +95,42 @@ class CocktailDetail extends React.Component {
 
         if (cocktail != undefined) {
             var ingredient = []
-            // for (var i = 1; i <= 15; i++) {
-            //     var test = "cocktail.strIngredient"+i
-            //     ingredient.push(<Text key={i} style={styles.default_text}>{test}</Text>)
-            // }
-            if (cocktail.strIngredient1 !== "") {ingredient.push(
-                <View key='1' style={styles.ingredient_container}>
-                    <Image
-                        style={styles.image_ingredient}
-                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient1+'-Small.png'}}
-                    />
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient1}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure1}</Text>
-                </View>
+
+            if (cocktail.strIngredient1 !== "" && cocktail.strIngredient1 !== null) {ingredient.push(
+                <Ingredient
+                    key='1'
+                    ingredient={cocktail.strIngredient1}
+                    measure={cocktail.strMeasure1}
+                    navigation={this.props.navigation}
+                />
             )}
-            if (cocktail.strIngredient2 !== "") {ingredient.push(
-                <View key='2' style={styles.ingredient_container}>
-                    <Image
-                        style={styles.image_ingredient}
-                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient2+'-Small.png'}}
-                    />
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient2}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure2}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient3 !== "") {ingredient.push(
-                <View key='3' style={styles.ingredient_container}>
-                    <Image
-                        style={styles.image_ingredient}
-                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient3+'-Small.png'}}
-                    />
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient3}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure3}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient4 !== "") {ingredient.push(
-                <View key='4' style={styles.ingredient_container}>
-                    <Image
-                        style={styles.image_ingredient}
-                        source={{uri: 'https://www.thecocktaildb.com/images/ingredients/'+cocktail.strIngredient4+'-Small.png'}}
-                    />
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient4}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure4}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient5 !== "") {ingredient.push(
-                <View key='5' style={styles.ingredient_container}>
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient5}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure5}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient6 !== "") {ingredient.push(
-                <View key='6' style={styles.ingredient_container}>
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient6}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure6}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient7 !== "") {ingredient.push(
-                <View key='7' style={styles.ingredient_container}>
-                    <Text style={styles.ingredient_text}>{cocktail.strIngredient7}</Text>
-                    <Text style={styles.measure_text}>{cocktail.strMeasure7}</Text>
-                </View>
-            )}
-            if (cocktail.strIngredient8 !== "") {ingredient.push(<Text key='8' style={styles.default_text}>{cocktail.strIngredient8}</Text>)}
-            if (cocktail.strIngredient9 !== "") {ingredient.push(<Text key='9' style={styles.default_text}>{cocktail.strIngredient9}</Text>)}
-            if (cocktail.strIngredient10 !== "") {ingredient.push(<Text key='10' style={styles.default_text}>{cocktail.strIngredient10}</Text>)}
-            if (cocktail.strIngredient11 !== "") {ingredient.push(<Text key='11' style={styles.default_text}>{cocktail.strIngredient11}</Text>)}
-            if (cocktail.strIngredient12 !== "") {ingredient.push(<Text key='12' style={styles.default_text}>{cocktail.strIngredient12}</Text>)}
-            if (cocktail.strIngredient13 !== "") {ingredient.push(<Text key='13' style={styles.default_text}>{cocktail.strIngredient13}</Text>)}
-            if (cocktail.strIngredient14 !== "") {ingredient.push(<Text key='14' style={styles.default_text}>{cocktail.strIngredient14}</Text>)}
-            if (cocktail.strIngredient15 !== "") {ingredient.push(<Text key='15' style={styles.default_text}>{cocktail.strIngredient15}</Text>)}
+            if (cocktail.strIngredient2 !== "" && cocktail.strIngredient2 !== null) {ingredient.push(<Ingredient key='2' ingredient={cocktail.strIngredient2} measure={cocktail.strMeasure2} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient3 !== "" && cocktail.strIngredient3 !== null) {ingredient.push(<Ingredient key='3' ingredient={cocktail.strIngredient3} measure={cocktail.strMeasure3} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient4 !== "" && cocktail.strIngredient4 !== null) {ingredient.push(<Ingredient key='4' ingredient={cocktail.strIngredient4} measure={cocktail.strMeasure4} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient5 !== "" && cocktail.strIngredient5 !== null) {ingredient.push(<Ingredient key='5' ingredient={cocktail.strIngredient5} measure={cocktail.strMeasure5} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient6 !== "" && cocktail.strIngredient6 !== null) {ingredient.push(<Ingredient key='6' ingredient={cocktail.strIngredient6} measure={cocktail.strMeasure6} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient7 !== "" && cocktail.strIngredient7 !== null) {ingredient.push(<Ingredient key='7' ingredient={cocktail.strIngredient7} measure={cocktail.strMeasure7} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient8 !== "" && cocktail.strIngredient8 !== null) {ingredient.push(<Ingredient key='8' ingredient={cocktail.strIngredient8} measure={cocktail.strMeasure8} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient9 !== "" && cocktail.strIngredient9 !== null) {ingredient.push(<Ingredient key='9' ingredient={cocktail.strIngredient9} measure={cocktail.strMeasure9} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient10 !== "" && cocktail.strIngredient10 !== null) {ingredient.push(<Ingredient key='10' ingredient={cocktail.strIngredient10} measure={cocktail.strMeasure10} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient11 !== "" && cocktail.strIngredient11 !== null) {ingredient.push(<Ingredient key='11' ingredient={cocktail.strIngredient11} measure={cocktail.strMeasure11} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient12 !== "" && cocktail.strIngredient12 !== null) {ingredient.push(<Ingredient key='12' ingredient={cocktail.strIngredient12} measure={cocktail.strMeasure12} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient13 !== "" && cocktail.strIngredient13 !== null) {ingredient.push(<Ingredient key='13' ingredient={cocktail.strIngredient13} measure={cocktail.strMeasure13} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient14 !== "" && cocktail.strIngredient14 !== null) {ingredient.push(<Ingredient key='14' ingredient={cocktail.strIngredient14} measure={cocktail.strMeasure14} navigation={this.props.navigation}/>)}
+            if (cocktail.strIngredient15 !== "" && cocktail.strIngredient15 !== null) {ingredient.push(<Ingredient key='15' ingredient={cocktail.strIngredient15} measure={cocktail.strMeasure15} navigation={this.props.navigation}/>)}
+            var tag = null
+            if (cocktail.strTags !== "" && cocktail.strTags !== null) {
+                tag = <Text style={styles.tag_text}>{cocktail.strTags}</Text>
+            }
 
             return (
                 <View style={styles.card_container}>
                     <View style={styles.card}>
-                        <View style={styles.header}>
-                            <Text style={styles.title_text}>{cocktail.strDrink}</Text>
+                        <View style={styles.image_container}>
+                            <View style={styles.title_container}>
+                                <Text style={styles.title_text}>{cocktail.strDrink}</Text>
+                                <Text style={styles.subtitle_text}>{cocktail.strCategory}</Text>
+                            </View>
                             <TouchableOpacity
                                 style={styles.favorite_container}
                                 onPress={() => this._toggleFavorite()}>
@@ -178,11 +140,17 @@ class CocktailDetail extends React.Component {
                                 style={styles.image}
                                 source={{uri: cocktail.strDrinkThumb}}
                             />
-                            <Text style={styles.description_text}>{cocktail.strInstructions}</Text>
-                            <Text style={styles.default_text, styles.center_text}>Glass - {cocktail.strGlass}</Text>
-                            <Text style={styles.default_text}>Ingredients : </Text>
                         </View>
-                        <ScrollView style={styles.scrollview}>
+                        <ScrollView>
+                            <View style={styles.description_container}>
+                                {tag}
+                                <Text style={styles.description_text}>{cocktail.strInstructions}</Text>
+                                <View style={styles.glass_container}>
+                                    <Text style={styles.glass_text_left}>Glass</Text>
+                                    <Text style={styles.glass_text_right}>{cocktail.strGlass}</Text>
+                                </View>
+                                <Text style={styles.title_ingredient}>Ingredients</Text>
+                            </View>
                             <FlatList
                                 data={ingredient}
                                 keyExtractor={(item) => item.key}
@@ -218,11 +186,18 @@ const styles = StyleSheet.create({
         height: 30
     },
     favorite_container: {
-        alignItems: 'center'
+        margin: 10,
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        zIndex: 5
     },
     favorite_image: {
         width: 40,
-        height: 40
+        height: 40,
+    },
+    image_container: {
+        // flex:3
     },
     loading_container: {
         position: 'absolute',
@@ -234,7 +209,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     card_container: {
-        flex: 1
+        flex: 1,
+        marginTop: -4
     },
     card: {
         flex: 1,
@@ -246,65 +222,100 @@ const styles = StyleSheet.create({
         // shadowRadius: 20,
         // elevation: 1
     },
-    header: {
-        flex: 2
-    },
-    scrollview: {
-        flex: 1
-    },
-    ingredient_container: {
-        backgroundColor: '#eee',
-        flexDirection: 'row'
-    },
-    ingredient_text: {
-        textAlign: 'left',
+    title_ingredient: {
+        textAlign: 'center',
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: 'white',
+        backgroundColor: '#bbb',
         paddingTop: 5,
         paddingBottom: 5,
-        paddingLeft: 5,
-        flex: 2
-    },
-    measure_text: {
-        textAlign: 'right',
-        paddingBottom: 5,
-        paddingTop: 5,
-        paddingRight: 5,
-        flex: 2
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        margin: 5
     },
     image: {
-        height: 159,
+        height: 220,
         marginTop: 5,
-        marginBottom: 5,
-        flex: 2
+        marginBottom: 5
     },
-    image_ingredient: {
-        height: 60,
-        resizeMode: 'contain',
-        flex:1
+    title_container: {
+        position: 'absolute',
+        top: 2,
+        // backgroundColor: 'rgba(200, 200, 200, 0.2)',
+        width: '100%',
+        zIndex: 5
     },
     title_text: {
+        textShadowColor: 'rgba(0, 0, 0, 0.5)',
+        textShadowOffset: {width: 0, height: 1},
+        textShadowRadius: 10,
         fontSize: 35,
+        fontWeight: 'bold',
         flexWrap: 'wrap',
-        marginLeft: 5,
-        marginRight: 5,
+        marginLeft: 10,
+        marginRight: 10,
         marginTop: 10,
         marginBottom: 0,
-        color: '#000000',
+        color: '#fff',
         textAlign: 'left'
+    },
+    subtitle_text: {
+        textShadowColor: 'rgba(0, 0, 0, 0.5)',
+        textShadowOffset: {width: 0, height: 1},
+        textShadowRadius: 10,
+        fontSize: 20,
+        flexWrap: 'wrap',
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 0,
+        color: '#ddd',
+        textAlign: 'left'
+    },
+    description_container: {
+        padding: 5
     },
     description_text: {
         fontStyle: 'italic',
         color: '#666666',
         margin: 5,
         marginBottom: 15,
-        flex: 2
+        fontSize: 18
     },
-    default_text: {
+    glass_container: {
+        flexDirection: 'row',
+        flex: 1,
+        marginBottom: 20
+    },
+    glass_text_left: {
         marginLeft: 5,
         marginRight: 5,
-        marginTop: 5
+        marginTop: 5,
+        fontSize: 18,
+        textAlign: 'left',
+        flex: 1,
+        color: '#bbb'
     },
-    center_text: {
-        textAlign: 'center'
+    glass_text_right: {
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 5,
+        fontSize: 18,
+        textAlign: 'right',
+        flex: 1,
+        color: '#bbb'
+    },
+    tag_text: {
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 5,
+        textAlign: 'center',
+        fontSize: 18,
+        borderRadius: 20,
+        borderStyle: 'solid',
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: '#ddd'
     }
 })
 
