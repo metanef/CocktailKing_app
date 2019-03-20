@@ -4,43 +4,40 @@ const API_TOKEN = '1'
 export function getCocktailFromApiWithSearchedText(text) {
     const url = 'https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/search.php?s=' + text
     return fetch(url)
-        .then((response) => response.json())
-        .catch((error) => console.error(error))
+    .then((response) => response.json())
+    .catch((error) => console.error(error))
 }
 
 export function getCocktailDetailFromApi (id) {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/lookup.php?i=' + id)
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/lookup.php?i=' + id)
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
 
 export function getRandomCocktailFromApi () {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/random.php')
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/random.php')
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
 export function getCocktailByIngredientFromApi (ingredient) {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?i=' + ingredient)
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?i=' + ingredient)
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
 export function getCocktailByCategoryFromApi (category) {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?c=' + category)
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/filter.php?c=' + category)
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
 
 // Ingredient methods
 export function getIngredientListFromApi () {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/list.php?i=list')
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/list.php?i=list')
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
 export function getIngredientDetailFromApi (name) {
-  return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/search.php?i='+ name)
+    return fetch('https://www.thecocktaildb.com/api/json/v1/' + API_TOKEN + '/search.php?i='+ name)
     .then((response) => response.json())
     .catch((error) => console.error(error));
 }
-// export function getIngredientImageFromApi (name) {
-//     return 'https://www.thecocktaildb.com/images/ingredients/' + name + '-Small.png'
-// }

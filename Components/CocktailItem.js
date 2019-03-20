@@ -6,14 +6,14 @@ class CocktailItem extends React.Component {
 
     _displayFavoriteImage() {
         // console.log(this.props.isCocktailFavorite);
-      if (this.props.isCoctkailFavorite) {
-        return (
-            <Image
-                style={styles.favorite_image}
-                source={require('../assets/ic_favorite.png')}
-            />
-        )
-      }
+        if (this.props.isCoctkailFavorite) {
+            return (
+                <Image
+                    style={styles.favorite_image}
+                    source={require('../assets/ic_favorite.png')}
+                />
+            )
+        }
     }
 
     render() {

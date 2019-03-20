@@ -166,16 +166,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white'
     },
-        // backgroundColor: "#d3b9d1"
-        // backgroundColor: "#F45337"
-        // backgroundColor: "#F4EAC6"
-        // backgroundColor: "#98a6d4"
-        // backgroundColor: "#8b6e47"
-        // backgroundColor: "#ad8f58"
-        // backgroundColor: "#fbbe05"
-        // backgroundColor: "#02AAC7"
-        // backgroundColor: "#A0C462"
-        // backgroundColor: "#ddd"
     backgroundContainer: {
         margin: 10,
         flex:1,

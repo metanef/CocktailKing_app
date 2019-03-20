@@ -33,20 +33,20 @@ class Alcool extends React.Component {
         })
     }
 
-  render() {
-    return (
-        <View style={styles.main_container}>
-            <View style={styles.result_container}>
-                <CocktailList
-                    cocktails={this.state.cocktails}
-                    navigation={this.props.navigation}
-                    loadCocktails={this._loadCocktails}
-                />
-                {this._displayLoading()}
+    render() {
+        return (
+            <View style={styles.main_container}>
+                <View style={styles.result_container}>
+                    <CocktailList
+                        cocktails={this.state.cocktails}
+                        navigation={this.props.navigation}
+                        loadCocktails={this._loadCocktails}
+                    />
+                    {this._displayLoading()}
+                </View>
             </View>
-        </View>
-    )
-  }
+        )
+    }
 }
 
 const styles = StyleSheet.create({

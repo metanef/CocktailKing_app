@@ -134,12 +134,6 @@ class SortedCocktail extends React.Component {
           textAlign: 'center',
           color: 'white'
       }
-        // backgroundColor: "#d3b9d1"
-        // backgroundColor: "#bfbfbf"
-        // backgroundColor: "#c4cad0"
-        // backgroundColor: "#98a6d4"
-        // backgroundColor: "#bfa972"
-        // backgroundColor: "#ad8f58"
   })
 
   export default SortedCocktail

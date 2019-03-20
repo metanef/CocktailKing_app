@@ -21,7 +21,7 @@ class IngredientDetail extends React.Component {
     }
     _updateNavigationParams() {
         this.props.navigation.setParams({
-          ingredient: this.state.ingredient
+            ingredient: this.state.ingredient
         })
     }
     componentDidMount() {

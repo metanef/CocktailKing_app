@@ -23,137 +23,137 @@ const SearchStackNavigator = createStackNavigator({
         screen: CocktailDetail
     },
     IngredientDetail: {
-      screen: IngredientDetail,
+        screen: IngredientDetail,
     }
 })
 
 const FavoritesStackNavigator = createStackNavigator({
-  Favorites: {
-    screen: Favorites,
-    navigationOptions: {
-      title: 'Favorites'
+    Favorites: {
+        screen: Favorites,
+        navigationOptions: {
+            title: 'Favorites'
+        }
+    },
+    CocktailDetail: {
+        screen: CocktailDetail
+    },
+    IngredientDetail: {
+        screen: IngredientDetail,
     }
-  },
-  CocktailDetail: {
-    screen: CocktailDetail
-},
-IngredientDetail: {
-  screen: IngredientDetail,
-}
 })
 
 const AlcoolStackNavigator = createStackNavigator({
-  SortedCocktail: {
-    screen: SortedCocktail,
-    navigationOptions: {
-      title: 'Spirits',
+    SortedCocktail: {
+        screen: SortedCocktail,
+        navigationOptions: {
+            title: 'Spirits',
+        },
     },
-  },
-  Alcool: {
-    screen: Alcool,
-  },
-  CocktailDetail: {
-    screen: CocktailDetail
+    Alcool: {
+        screen: Alcool,
+    },
+    CocktailDetail: {
+        screen: CocktailDetail
     },
     IngredientDetail: {
-      screen: IngredientDetail,
+        screen: IngredientDetail,
     }
 })
 const SortedCategoryStackNavigator = createStackNavigator({
-  SortedCategory: {
-    screen: SortedCategory,
-    navigationOptions: {
-      title: 'Category',
+    SortedCategory: {
+        screen: SortedCategory,
+        navigationOptions: {
+            title: 'Category',
+        },
     },
-  },
-  Category: {
-    screen: Category,
-  },
-  CocktailDetail: {
-    screen: CocktailDetail
-  },
-  IngredientDetail: {
-    screen: IngredientDetail,
-  }
+    Category: {
+        screen: Category,
+    },
+    CocktailDetail: {
+        screen: CocktailDetail
+    },
+    IngredientDetail: {
+        screen: IngredientDetail,
+    }
 })
 
 const IngredientStackNavigator = createStackNavigator({
-  Ingredient: {
-    screen: Ingredient,
-    navigationOptions: {
-      title: 'Ingredients',
+    Ingredient: {
+        screen: Ingredient,
+        navigationOptions: {
+            title: 'Ingredients',
+        },
     },
-  },
-  IngredientDetail: {
-    screen: IngredientDetail,
-  }
+    IngredientDetail: {
+        screen: IngredientDetail,
+    }
 })
 
 const CocktailTabNavigator = createBottomTabNavigator({
-        SortedCategory: {
-          screen: SortedCategoryStackNavigator,
-          navigationOptions: {
+    SortedCategory: {
+        screen: SortedCategoryStackNavigator,
+        navigationOptions: {
             tabBarIcon: () => {
-              return <Image
-                source={require('../assets/ic_cocktail.png')}
-                style={styles.icon}/>
+                return <Image
+                    source={require('../assets/ic_cocktail.png')}
+                    style={styles.icon}/>
+                }
             }
-          }
         },
         SortedCocktail: {
-          screen: AlcoolStackNavigator,
-          navigationOptions: {
-            tabBarIcon: () => {
-              return <Image
-                source={require('../assets/ic_spirits.png')}
-                style={styles.icon}/>
-            }
-          }
-        },
-        Search: {
-            screen: SearchStackNavigator,
-            navigationOptions: {
-                tabBarIcon: () => { // Icon render
-                    return <Image
-                        source={require('../assets/ic_home.png')}
-                        style={styles.icon} // Icon style
-                    />
-                }
-            }
-        },
-        Favorites: {
-            screen: FavoritesStackNavigator,
+            screen: AlcoolStackNavigator,
             navigationOptions: {
                 tabBarIcon: () => {
                     return <Image
-                        source={require('../assets/ic_favorite_dark.png')}
-                        style={styles.icon}
-                    />
+                        source={require('../assets/ic_spirits.png')}
+                        style={styles.icon}/>
+                    }
+                }
+            },
+            Search: {
+                screen: SearchStackNavigator,
+                navigationOptions: {
+                    tabBarIcon: () => { // Icon render
+                        return <Image
+                            source={require('../assets/ic_home.png')}
+                            style={styles.icon} // Icon style
+                        />
+                    }
+                }
+            },
+            Favorites: {
+                screen: FavoritesStackNavigator,
+                navigationOptions: {
+                    tabBarIcon: () => {
+                        return <Image
+                            source={require('../assets/ic_favorite_dark.png')}
+                            style={styles.icon}
+                        />
+                    }
+                }
+            },
+            Ingredient: {
+                screen: IngredientStackNavigator,
+                navigationOptions: {
+                    tabBarIcon: () => {
+                        return <Image
+                            source={require('../assets/ic_book.png')}
+                            style={styles.icon}
+                        />
+                    }
                 }
             }
         },
-        Ingredient: {
-            screen: IngredientStackNavigator,
-            navigationOptions: {
-                tabBarIcon: () => {
-                    return <Image
-                        source={require('../assets/ic_book.png')}
-                        style={styles.icon}
-                    />
-                }
+        {
+            initialRouteName: 'Search',
+            tabBarOptions: {
+                activeBackgroundColor: '#DDDDDD', // ative tab background color
+                inactiveBackgroundColor: '#FFFFFF',
+                showLabel: false, // hide titles
+                showIcon: true // show icons
             }
         }
-    },
-    {
-        initialRouteName: 'Search',
-        tabBarOptions: {
-            activeBackgroundColor: '#DDDDDD', // ative tab background color
-            inactiveBackgroundColor: '#FFFFFF',
-            showLabel: false, // hide titles
-            showIcon: true // show icons
-        }
-    }
-)
+    )
 
     const styles = StyleSheet.create({
         icon: {

@@ -32,8 +32,8 @@ class CocktailDetail extends React.Component {
     }
     _updateNavigationParams() {
         this.props.navigation.setParams({
-          shareCocktail: this._shareCocktail,
-          cocktail: this.state.cocktail
+            shareCocktail: this._shareCocktail,
+            cocktail: this.state.cocktail
         })
     }
     componentDidMount() {
@@ -77,10 +77,10 @@ class CocktailDetail extends React.Component {
             sourceImage = require('../assets/ic_favorite.png')
         }
         return (
-        <Image
-            style={styles.favorite_image}
-            source={sourceImage}
-        />
+            <Image
+                style={styles.favorite_image}
+                source={sourceImage}
+            />
         )
     }
 
@@ -214,13 +214,6 @@ const styles = StyleSheet.create({
     },
     card: {
         flex: 1,
-        // margin: 10,
-        // borderRadius: 0,
-        // shadowColor: 'black',
-        // shadowOffset: {width: 30, height: 10},
-        // shadowOpacity: 0.5,
-        // shadowRadius: 20,
-        // elevation: 1
     },
     title_ingredient: {
         textAlign: 'center',
