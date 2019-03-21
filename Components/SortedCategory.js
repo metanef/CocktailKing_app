@@ -1,8 +1,20 @@
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text, ImageBackground } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, Text, ImageBackground, Image } from 'react-native'
 import Category from './Category'
 
 class SortedCategory extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state
+        // access to sharefilm function via navigation params
+            return {
+                // show icon thanks to touchable
+                headerRight:
+                <Image
+                    style={styles.app_icon}
+                    source={require('../assets/icon.png')}
+                />
+            }
+    }
 
     constructor(props) {
         super(props)
@@ -177,6 +189,11 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         borderRadius: 20,
+    },
+    app_icon: {
+        width: 40,
+        height: 40,
+        marginRight: 15
     }
 })
 

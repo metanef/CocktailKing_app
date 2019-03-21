@@ -147,7 +147,9 @@ const CocktailTabNavigator = createBottomTabNavigator({
         {
             initialRouteName: 'Search',
             tabBarOptions: {
-                activeBackgroundColor: '#DDDDDD', // ative tab background color
+                // activeTintColor: '#000000',
+                // inactiveTintColor: '#eee',
+                activeBackgroundColor: '#eeeeee', // ative tab background color
                 inactiveBackgroundColor: '#FFFFFF',
                 showLabel: false, // hide titles
                 showIcon: true // show icons

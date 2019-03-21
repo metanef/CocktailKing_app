@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Button, FlatList, Text, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, TextInput, Button, FlatList, Text, ActivityIndicator, Image } from 'react-native'
 import { getCocktailFromApiWithSearchedText } from '../API/TCDBApi'
 import Icon from 'react-native-vector-icons/Feather'
 import CocktailItem from './CocktailItem'
@@ -7,6 +7,18 @@ import CocktailList from './CocktailList'
 import News from './News'
 
 class Search extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state
+        // access to sharefilm function via navigation params
+            return {
+                // show icon thanks to touchable
+                headerRight:
+                <Image
+                    style={styles.app_icon}
+                    source={require('../assets/icon.png')}
+                />
+            }
+    }
 
     constructor(props) {
         super(props)
@@ -130,6 +142,11 @@ class Search extends React.Component {
             bottom: 0,
             alignItems: 'center',
             justifyContent: 'center'
+        },
+        app_icon: {
+            width: 40,
+            height: 40,
+            marginRight: 15
         }
     })
 

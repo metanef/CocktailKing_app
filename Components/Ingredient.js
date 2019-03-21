@@ -1,9 +1,22 @@
 import React from 'react'
-import { } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 import IngredientList from './IngredientList'
 import { getIngredientListFromApi } from '../API/TCDBApi'
 
 class Ingredient extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        const { params } = navigation.state
+        // access to sharefilm function via navigation params
+            return {
+                // show icon thanks to touchable
+                headerRight:
+                <Image
+                    style={styles.app_icon}
+                    source={require('../assets/icon.png')}
+                />
+            }
+    }
+
     constructor(props) {
         super(props)
         this.state = {
@@ -45,5 +58,12 @@ class Ingredient extends React.Component {
         )
     }
 }
+const styles = StyleSheet.create({
+    app_icon: {
+        width: 40,
+        height: 40,
+        marginRight: 15
+    }
+})
 
 export default Ingredient

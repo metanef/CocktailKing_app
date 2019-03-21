@@ -118,10 +118,6 @@ class CocktailDetail extends React.Component {
             if (cocktail.strIngredient13 !== "" && cocktail.strIngredient13 !== null) {ingredient.push(<Ingredient key='13' ingredient={cocktail.strIngredient13} measure={cocktail.strMeasure13} navigation={this.props.navigation}/>)}
             if (cocktail.strIngredient14 !== "" && cocktail.strIngredient14 !== null) {ingredient.push(<Ingredient key='14' ingredient={cocktail.strIngredient14} measure={cocktail.strMeasure14} navigation={this.props.navigation}/>)}
             if (cocktail.strIngredient15 !== "" && cocktail.strIngredient15 !== null) {ingredient.push(<Ingredient key='15' ingredient={cocktail.strIngredient15} measure={cocktail.strMeasure15} navigation={this.props.navigation}/>)}
-            var tag = null
-            if (cocktail.strTags !== "" && cocktail.strTags !== null) {
-                tag = <Text style={styles.tag_text}>{cocktail.strTags}</Text>
-            }
 
             return (
                 <View style={styles.card_container}>
@@ -143,7 +139,6 @@ class CocktailDetail extends React.Component {
                         </View>
                         <ScrollView>
                             <View style={styles.description_container}>
-                                {tag}
                                 <Text style={styles.description_text}>{cocktail.strInstructions}</Text>
                                 <View style={styles.glass_container}>
                                     <Text style={styles.glass_text_left}>Glass</Text>
@@ -304,11 +299,11 @@ const styles = StyleSheet.create({
         marginTop: 5,
         textAlign: 'center',
         fontSize: 18,
-        borderRadius: 20,
-        borderStyle: 'solid',
-        borderColor: 'gray',
-        borderWidth: 1,
-        backgroundColor: '#ddd'
+        // borderRadius: 20,
+        // borderStyle: 'solid',
+        // borderColor: 'gray',
+        // borderWidth: 1,
+        // backgroundColor: '#ddd'
     }
 })
 

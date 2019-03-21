@@ -36,6 +36,12 @@ class IngredientDetail extends React.Component {
 
     render() {
         const { ingredient } = this.state
+
+        if (ingredient.strDescription !== "" && ingredient.strDescription !== null) {
+            description = <Text style={styles.description_text}>{ingredient.strDescription}</Text>
+        } else {
+            description = <Text style={styles.nodescription_text}>No description</Text>
+        }
         return (
             <View style={styles.main_container}>
                 {this._displayLoading()}
@@ -47,7 +53,7 @@ class IngredientDetail extends React.Component {
                     />
                 </View>
                 <ScrollView style={styles.scrollview}>
-                    <Text style={styles.description_text}>{ingredient.strDescription}</Text>
+                    {description}
                 </ScrollView>
             </View>
         )
@@ -85,17 +91,26 @@ const styles = StyleSheet.create({
         textAlign: 'left'
     },
     description_text: {
-        fontStyle: 'italic',
         color: '#666666',
-        margin: 5,
-        marginBottom: 15,
-        flex: 2
+        padding: 10,
+        paddingBottom: 15,
+        margin: 10,
+        fontSize: 18,
+        backgroundColor: '#efefef',
+        borderRadius: 20,
+    },
+    nodescription_text: {
+        color: '#666666',
+        padding: 10,
+        fontSize: 18,
+        textAlign: 'center',
+        paddingTop: 15,
     },
     scrollview: {
-        flex: 1
+        flex: 3
     },
     header: {
-        flex: 2
+        flex: 1
     }
 })
 

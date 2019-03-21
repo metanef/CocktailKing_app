@@ -91,8 +91,10 @@ const styles = StyleSheet.create({
         flex: 7
     },
     description_text: {
-        fontStyle: 'italic',
-        color: '#666666'
+        color: '#666666',
+        marginTop: 5,
+        marginRight: 5,
+        fontSize: 16
     },
     category_container: {
         flex: 1,
